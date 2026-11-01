@@ -4,49 +4,49 @@ Catat prompt penting selama membangun aplikasi: apa yang kamu minta, hasilnya, d
 
 ## US-01 Katalog dari database
 
-**Prompt:**
+**Prompt:Tutorial**
 
-**Hasil:**
+**Hasil:Berjalan**
 
 **Perbaikan:**
 
 ## US-02 Detail produk
 
-**Prompt:**
+**Prompt:Tutorial**
 
-**Hasil:**
+**Hasil:Berjalan**
 
 **Perbaikan:**
 
 ## US-03 Pesan via WhatsApp
 
-**Prompt:**
+**Prompt:Tutorial**
 
-**Hasil:**
+**Hasil:Berjalan**
 
 **Perbaikan:**
 
 ## US-04 Login admin
 
-**Prompt:**
+**Prompt:Tutorial**
 
-**Hasil:**
+**Hasil:Berjalan**
 
 **Perbaikan:**
 
 ## US-05 Ganti password
 
-**Prompt:**
+**Prompt:Tutorial**
 
-**Hasil:**
+**Hasil:Berjalan**
 
 **Perbaikan:**
 
 ## US-06 Proteksi halaman admin
 
-**Prompt:**
+**Prompt:Tutorial**
 
-**Hasil:**
+**Hasil:Berjalan**
 
 **Perbaikan:**
 

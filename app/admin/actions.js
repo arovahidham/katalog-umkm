@@ -3,6 +3,23 @@
 import { redirect } from "next/navigation";
 import { createSessionClient } from "@/lib/supabase/server";
 
+/**
+ * Memastikan sesi admin valid sebelum menjalankan aksi yang mengubah data di server.
+ */
+export async function requireAuth() {
+  const supabase = await createSessionClient();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+
+  if (error || !user) {
+    return { authorized: false, error: "Anda harus login untuk melakukan aksi ini." };
+  }
+
+  return { authorized: true, supabase, user };
+}
+
 export async function login(prevState, formData) {
   let data = formData;
   if (!data && prevState && typeof prevState.get === "function") {
@@ -57,17 +74,13 @@ export async function gantiPassword(prevState, formData) {
     return { error: "Password baru dan konfirmasi password tidak sama." };
   }
 
-  const supabase = await createSessionClient();
-  const {
-    data: { user },
-    error: userError,
-  } = await supabase.auth.getUser();
-
-  if (userError || !user) {
-    return { error: "Anda harus login untuk mengganti password." };
+  // Wajib memeriksa status login admin di server sebelum mengubah password
+  const auth = await requireAuth();
+  if (!auth.authorized) {
+    return { error: auth.error };
   }
 
-  const { error } = await supabase.auth.updateUser({
+  const { error } = await auth.supabase.auth.updateUser({
     password: passwordBaru,
   });
 
